@@ -11,10 +11,13 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
+# Copy and make start script executable
+COPY start.sh ./
+RUN chmod +x start.sh
+
 # Set production environment
 ENV NODE_ENV=production
 ENV PORT=3000
-ENV HOSTNAME=0.0.0.0
 
-# Start Next.js - PORT is provided by Railway
-CMD node_modules/.bin/next start -H 0.0.0.0 -p $PORT
+# Start using the script with exec to handle signals properly
+CMD ["./start.sh"]
