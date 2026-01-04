@@ -21,6 +21,8 @@ FROM node:18-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
+# Default port if not provided
+ENV PORT=3000
 
 # Copy necessary files from builder
 COPY --from=builder /app/package*.json ./
@@ -29,8 +31,5 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/next.config.js ./
 
-# Railway assigns PORT dynamically
-EXPOSE 3000
-
-# Use shell form to allow environment variable expansion
-CMD ["sh", "-c", "npm run start"]
+# Start the server - Railway provides PORT env var
+CMD ["sh", "-c", "node_modules/.bin/next start -H 0.0.0.0 -p ${PORT}"]
