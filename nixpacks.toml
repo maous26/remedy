@@ -1,0 +1,14 @@
+# Nixpacks configuration for Railway
+# Disable caching to ensure clean builds
+
+[phases.build]
+cmds = [
+    "rm -rf .next",
+    "npm run build"
+]
+
+[phases.setup]
+nixPkgs = ["nodejs-18_x"]
+
+[start]
+cmd = "npm run start"
