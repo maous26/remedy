@@ -39,14 +39,14 @@ export default function ShopPage({ searchParams }: ShopPageProps) {
   return (
     <div className="bg-earth-50 min-h-screen">
       {/* Header */}
-      <div className="bg-gradient-to-r from-sage-600 to-sage-700 text-white py-12">
+      <div className="bg-gradient-to-r from-sage-600 to-sage-700 text-white py-6 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl lg:text-4xl font-serif font-bold mb-2">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1 sm:mb-2">
             {showPacks && !showProducts
               ? 'Nos Packs Rituels'
               : 'Notre Boutique'}
           </h1>
-          <p className="text-sage-100 max-w-2xl">
+          <p className="text-sage-100 max-w-2xl text-sm sm:text-base">
             {showPacks && !showProducts
               ? 'Des associations synergiques de plantes pour des rituels complets de bien-être.'
               : 'Plantes traditionnelles africaines sélectionnées pour leur qualité et leurs usages ancestraux.'}
@@ -54,11 +54,11 @@ export default function ShopPage({ searchParams }: ShopPageProps) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         <div className="lg:grid lg:grid-cols-4 lg:gap-8">
           {/* Filters Sidebar */}
-          <aside className="lg:col-span-1 mb-8 lg:mb-0">
-            <Suspense fallback={<div>Chargement...</div>}>
+          <aside className="lg:col-span-1 mb-4 sm:mb-8 lg:mb-0">
+            <Suspense fallback={<div className="text-sm text-earth-500">Chargement...</div>}>
               <ShopFilters
                 categories={allCategories}
                 currentType={searchParams.type}
@@ -71,14 +71,14 @@ export default function ShopPage({ searchParams }: ShopPageProps) {
           <main className="lg:col-span-3">
             {/* Products Section */}
             {(showProducts || (!showPacks && !showProducts)) && (
-              <section className="mb-12">
+              <section className="mb-8 sm:mb-12">
                 {!showPacks && (
-                  <h2 className="text-2xl font-serif font-bold text-earth-800 mb-6">
+                  <h2 className="text-xl sm:text-2xl font-serif font-bold text-earth-800 mb-4 sm:mb-6">
                     Plantes individuelles
                   </h2>
                 )}
                 {filteredProducts.length > 0 ? (
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                     {filteredProducts.map((product, index) => (
                       <ProductCard
                         key={index}
@@ -95,7 +95,7 @@ export default function ShopPage({ searchParams }: ShopPageProps) {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-earth-500 text-center py-8">
+                  <p className="text-earth-500 text-center py-6 sm:py-8 text-sm sm:text-base">
                     Aucun produit trouvé dans cette catégorie.
                   </p>
                 )}
@@ -106,12 +106,12 @@ export default function ShopPage({ searchParams }: ShopPageProps) {
             {(showPacks || (!showPacks && !searchParams.type)) && (
               <section>
                 {!searchParams.type && (
-                  <h2 className="text-2xl font-serif font-bold text-earth-800 mb-6">
+                  <h2 className="text-xl sm:text-2xl font-serif font-bold text-earth-800 mb-4 sm:mb-6">
                     Nos Packs Rituels
                   </h2>
                 )}
                 {filteredPacks.length > 0 ? (
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                     {filteredPacks.map((pack, index) => (
                       <ProductCard
                         key={index}
@@ -129,7 +129,7 @@ export default function ShopPage({ searchParams }: ShopPageProps) {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-earth-500 text-center py-8">
+                  <p className="text-earth-500 text-center py-6 sm:py-8 text-sm sm:text-base">
                     Aucun pack trouvé dans cette catégorie.
                   </p>
                 )}

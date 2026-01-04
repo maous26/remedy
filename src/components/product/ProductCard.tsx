@@ -69,8 +69,8 @@ export default function ProductCard({
   const imageSrc = image || productImages[slug];
 
   return (
-    <Link href={href} className="group block">
-      <div className="bg-white rounded-xl overflow-hidden border border-earth-100 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+    <Link href={href} className="group block h-full">
+      <div className="bg-white rounded-lg sm:rounded-xl overflow-hidden border border-earth-100 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
         {/* Image */}
         <div className="relative aspect-square bg-earth-100 overflow-hidden">
           {imageSrc ? (
@@ -79,47 +79,47 @@ export default function ProductCard({
               alt={name}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">
-              <ShoppingBag className="h-16 w-16 text-earth-300 group-hover:scale-110 transition-transform" />
+              <ShoppingBag className="h-10 w-10 sm:h-16 sm:w-16 text-earth-300 group-hover:scale-110 transition-transform" />
             </div>
           )}
 
           {/* Badges */}
-          <div className="absolute top-3 left-3 flex flex-col gap-2 z-10">
-            {type === 'pack' && <Badge variant="success">Pack</Badge>}
-            {discount > 0 && <Badge variant="promo">-{discount}%</Badge>}
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 flex flex-col gap-1 sm:gap-2 z-10">
+            {type === 'pack' && <Badge variant="success" className="text-[10px] sm:text-xs px-1.5 py-0.5 sm:px-2 sm:py-1">Pack</Badge>}
+            {discount > 0 && <Badge variant="promo" className="text-[10px] sm:text-xs px-1.5 py-0.5 sm:px-2 sm:py-1">-{discount}%</Badge>}
           </div>
 
-          {/* Quick add button */}
+          {/* Quick add button - toujours visible sur mobile */}
           <button
             onClick={handleAddToCart}
-            className="absolute bottom-3 right-3 p-2 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity hover:bg-sage-50 z-10"
+            className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 p-1.5 sm:p-2 bg-white rounded-full shadow-md sm:opacity-0 sm:group-hover:opacity-100 transition-opacity hover:bg-sage-50 z-10 active:scale-95"
             aria-label="Ajouter au panier"
           >
-            <Plus className="h-5 w-5 text-sage-600" />
+            <Plus className="h-4 w-4 sm:h-5 sm:w-5 text-sage-600" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-4 flex-1 flex flex-col">
-          <h3 className="font-serif font-semibold text-earth-800 group-hover:text-sage-600 transition-colors">
+        <div className="p-2.5 sm:p-4 flex-1 flex flex-col">
+          <h3 className="font-serif font-semibold text-earth-800 group-hover:text-sage-600 transition-colors text-xs sm:text-base leading-tight line-clamp-2">
             {name}
           </h3>
-          <p className="text-sm text-earth-500 mt-1 line-clamp-2 flex-1">
+          <p className="text-[10px] sm:text-sm text-earth-500 mt-0.5 sm:mt-1 line-clamp-2 flex-1 hidden sm:block">
             {subtitle}
           </p>
-          <p className="text-xs text-earth-400 mt-1">{weight}</p>
+          <p className="text-[10px] sm:text-xs text-earth-400 mt-0.5 sm:mt-1">{weight}</p>
 
-          <div className="flex items-center justify-between mt-4">
-            <div className="flex items-center gap-2">
-              <span className="text-lg font-semibold text-sage-600">
+          <div className="flex items-center justify-between mt-2 sm:mt-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2">
+              <span className="text-sm sm:text-lg font-semibold text-sage-600">
                 {formatPrice(price)}
               </span>
               {originalPrice && originalPrice > price && (
-                <span className="text-sm text-earth-400 line-through">
+                <span className="text-[10px] sm:text-sm text-earth-400 line-through">
                   {formatPrice(originalPrice)}
                 </span>
               )}

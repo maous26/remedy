@@ -17,43 +17,15 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-earth-100 via-sage-50 to-earth-50 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-sage-300 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold-300 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-sage-300 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-gold-300 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-block px-4 py-2 bg-sage-100 text-sage-700 rounded-full text-sm font-medium mb-6">
-                Savoirs ancestraux, bien-être moderne
-              </span>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-earth-800 leading-tight mb-6">
-                Les trésors de la{' '}
-                <span className="text-sage-600">nature africaine</span> pour
-                votre bien-être féminin
-              </h1>
-              <p className="text-lg text-earth-600 mb-8 max-w-xl">
-                Découvrez des plantes traditionnelles transmises de génération
-                en génération, sélectionnées avec soin pour accompagner votre
-                bien-être au quotidien.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/shop">
-                  <Button size="lg">
-                    Découvrir la boutique
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="/about">
-                  <Button variant="outline" size="lg">
-                    Notre histoire
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-sage-100 to-earth-100 rounded-3xl flex items-center justify-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Image en premier sur mobile */}
+            <div className="relative order-first lg:order-last">
+              <div className="aspect-square max-w-[280px] sm:max-w-none mx-auto bg-gradient-to-br from-sage-100 to-earth-100 rounded-2xl sm:rounded-3xl flex items-center justify-center">
                 <Image
                   src="/logo3.png"
                   alt="RootsRemedy"
@@ -63,14 +35,43 @@ export default function HomePage() {
                 />
               </div>
             </div>
+
+            <div className="text-center lg:text-left">
+              <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-sage-100 text-sage-700 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+                Savoirs ancestraux, bien-être moderne
+              </span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-earth-800 leading-tight mb-4 sm:mb-6">
+                Les trésors de la{' '}
+                <span className="text-sage-600">nature africaine</span> pour
+                votre bien-être féminin
+              </h1>
+              <p className="text-base sm:text-lg text-earth-600 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
+                Découvrez des plantes traditionnelles transmises de génération
+                en génération, sélectionnées avec soin pour accompagner votre
+                bien-être au quotidien.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+                <Link href="/shop" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    Découvrir la boutique
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/about" className="w-full sm:w-auto">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                    Notre histoire
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-white">
+      <section className="py-10 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
             {[
               {
                 icon: Leaf,
@@ -93,14 +94,14 @@ export default function HomePage() {
                 description: 'Corps et esprit en harmonie',
               },
             ].map((value, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-sage-100 rounded-full mb-4">
-                  <value.icon className="h-7 w-7 text-sage-600" />
+              <div key={index} className="text-center p-3 sm:p-0">
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-sage-100 rounded-full mb-3 sm:mb-4">
+                  <value.icon className="h-6 w-6 sm:h-7 sm:w-7 text-sage-600" />
                 </div>
-                <h3 className="font-semibold text-earth-800 mb-2">
+                <h3 className="font-semibold text-earth-800 mb-1 sm:mb-2 text-sm sm:text-base">
                   {value.title}
                 </h3>
-                <p className="text-sm text-earth-500">{value.description}</p>
+                <p className="text-xs sm:text-sm text-earth-500 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -108,19 +109,19 @@ export default function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 lg:py-24 bg-earth-50">
+      <section className="py-12 sm:py-16 lg:py-24 bg-earth-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-earth-800 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-earth-800 mb-3 sm:mb-4">
               Nos plantes traditionnelles
             </h2>
-            <p className="text-earth-600 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-earth-600 max-w-2xl mx-auto px-4">
               Chaque plante a été sélectionnée pour ses usages traditionnels
               reconnus dans les cultures africaines depuis des générations.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
             {featuredProducts.map((product, index) => (
               <ProductCard
                 key={index}
@@ -130,15 +131,16 @@ export default function HomePage() {
                 subtitle={product.subtitle}
                 price={product.price}
                 weight={product.weight}
+                image={product.images[0]}
                 categories={product.categories}
                 type="product"
               />
             ))}
           </div>
 
-          <div className="text-center mt-10">
-            <Link href="/shop">
-              <Button variant="outline" size="lg">
+          <div className="text-center mt-8 sm:mt-10">
+            <Link href="/shop" className="inline-block w-full sm:w-auto px-4 sm:px-0">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto">
                 Voir tous les produits
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -148,22 +150,22 @@ export default function HomePage() {
       </section>
 
       {/* Featured Packs */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-2 bg-terracotta-100 text-terracotta-700 rounded-full text-sm font-medium mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-terracotta-100 text-terracotta-700 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
               Économisez avec nos packs
             </span>
-            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-earth-800 mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-earth-800 mb-3 sm:mb-4">
               Nos rituels bien-être
             </h2>
-            <p className="text-earth-600 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-earth-600 max-w-2xl mx-auto px-4">
               Des associations synergiques de plantes, conçues selon les savoirs
               traditionnels pour répondre à vos besoins spécifiques.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
             {featuredPacks.map((pack, index) => (
               <ProductCard
                 key={index}
@@ -174,15 +176,16 @@ export default function HomePage() {
                 price={pack.price}
                 originalPrice={pack.originalPrice}
                 weight={pack.duration}
+                image={pack.images[0]}
                 categories={pack.categories}
                 type="pack"
               />
             ))}
           </div>
 
-          <div className="text-center mt-10">
-            <Link href="/shop?type=packs">
-              <Button variant="outline" size="lg">
+          <div className="text-center mt-8 sm:mt-10">
+            <Link href="/shop?type=packs" className="inline-block w-full sm:w-auto px-4 sm:px-0">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto">
                 Voir tous les packs
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -192,20 +195,20 @@ export default function HomePage() {
       </section>
 
       {/* Trust Banner */}
-      <section className="py-12 bg-sage-600 text-white">
+      <section className="py-8 sm:py-12 bg-sage-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h3 className="text-2xl font-serif font-bold mb-4">
+            <h3 className="text-xl sm:text-2xl font-serif font-bold mb-3 sm:mb-4">
               Livraison gratuite dès 60€ d'achat
             </h3>
-            <p className="text-sage-100 mb-6">
+            <p className="text-sage-100 mb-4 sm:mb-6 text-sm sm:text-base">
               Expédition sous 48h • Paiement sécurisé • Satisfait ou remboursé
             </p>
-            <Link href="/shop">
+            <Link href="/shop" className="inline-block w-full sm:w-auto px-4 sm:px-0">
               <Button
                 variant="secondary"
                 size="lg"
-                className="bg-white text-sage-700 hover:bg-sage-50"
+                className="bg-white text-sage-700 hover:bg-sage-50 w-full sm:w-auto"
               >
                 Commencer mes achats
               </Button>
@@ -215,13 +218,13 @@ export default function HomePage() {
       </section>
 
       {/* Disclaimer */}
-      <section className="py-8 bg-earth-100">
+      <section className="py-6 sm:py-8 bg-earth-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-xl p-6 border border-earth-200">
-            <h4 className="font-semibold text-earth-800 mb-2">
+          <div className="bg-white rounded-xl p-4 sm:p-6 border border-earth-200">
+            <h4 className="font-semibold text-earth-800 mb-2 text-sm sm:text-base">
               Information importante
             </h4>
-            <p className="text-sm text-earth-600">
+            <p className="text-xs sm:text-sm text-earth-600 leading-relaxed">
               Les produits RootsRemedy sont des plantes traditionnelles
               destinées au bien-être. Les informations fournies sont basées sur
               les usages traditionnels et ne constituent pas un avis médical.
