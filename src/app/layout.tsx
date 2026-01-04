@@ -3,6 +3,9 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import ClientLayout from '@/components/layout/ClientLayout';
 import './globals.css';
 
+// Force dynamic rendering to avoid SSR issues with Zustand
+export const dynamic = 'force-dynamic';
+
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',

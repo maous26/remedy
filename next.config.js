@@ -8,6 +8,8 @@ const nextConfig = {
       },
     ],
   },
+  // Use standalone output for Docker deployment
+  output: 'standalone',
 }
 
 module.exports = nextConfig
