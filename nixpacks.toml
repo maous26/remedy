@@ -3,9 +3,13 @@
 [phases.setup]
 nixPkgs = ["nodejs-18_x"]
 
+[phases.install]
+cmds = ["npm ci"]
+
 [phases.build]
-# Clear entire .next directory contents (except cache mount) before build
-cmds = ["rm -rf .next/server .next/static .next/BUILD_ID .next/*.json 2>/dev/null || true", "npm run build"]
+# Clear node_modules cache and .next before fresh build
+cmds = ["rm -rf node_modules/.cache .next 2>/dev/null || true", "npm run build"]
+dependsOn = ["install"]
 
 [start]
 cmd = "npm run start"
