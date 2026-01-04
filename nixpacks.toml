@@ -4,8 +4,8 @@
 nixPkgs = ["nodejs-18_x"]
 
 [phases.build]
-# Clear server/static chunks before build to avoid stale cache issues
-cmds = ["find .next -name '*.js' -path '*/server/*' -delete 2>/dev/null || true", "npm run build"]
+# Clear entire .next directory contents (except cache mount) before build
+cmds = ["rm -rf .next/server .next/static .next/BUILD_ID .next/*.json 2>/dev/null || true", "npm run build"]
 
 [start]
 cmd = "npm run start"
