@@ -7,9 +7,8 @@ nixPkgs = ["nodejs-18_x"]
 cmds = ["npm ci"]
 
 [phases.build]
-# Clear node_modules cache and .next before fresh build
-cmds = ["rm -rf node_modules/.cache .next 2>/dev/null || true", "npm run build"]
+cmds = ["npm run build"]
 dependsOn = ["install"]
 
 [start]
-cmd = "npm run start"
+cmd = "NODE_ENV=production node_modules/.bin/next start -H 0.0.0.0 -p ${PORT:-3000}"
