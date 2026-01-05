@@ -2,12 +2,15 @@
   "name": "rootsremedy",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start -H 0.0.0.0 -p ${PORT:-3000}",
     "lint": "next lint",
-    "postinstall": "echo 'Skipping prisma for demo'",
+    "postinstall": "prisma generate || echo \"Prisma generate skipped\"",
     "db:push": "prisma db push",
     "db:seed": "npx ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts",
     "db:studio": "prisma studio"

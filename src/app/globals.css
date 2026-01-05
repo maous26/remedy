@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Keep Tailwind fontFamily vars valid even if Google Fonts are blocked/unavailable */
+    --font-inter: 'Inter';
+    --font-playfair: 'Playfair Display';
+  }
+
   html {
     scroll-behavior: smooth;
   }
