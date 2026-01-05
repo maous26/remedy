@@ -131,4 +131,45 @@ export interface ProductOverride {
   description?: string;
   price?: number;
   images?: string[];
+  hidden?: boolean;
+}
+
+export interface PackOverride {
+  slug: string;
+  name?: string;
+  subtitle?: string;
+  description?: string;
+  price?: number;
+  originalPrice?: number;
+  images?: string[];
+  hidden?: boolean;
+}
+
+export interface CustomProduct {
+  id: string;
+  slug: string;
+  name: string;
+  subtitle: string;
+  description: string;
+  origin: string;
+  price: number;
+  weight: string;
+  stock: number;
+  images: string[];
+  categories: string[];
+  benefits: string[];
+  precautions: string;
+}
+
+export interface CustomPack {
+  id: string;
+  slug: string;
+  name: string;
+  subtitle: string;
+  description: string;
+  price: number;
+  originalPrice: number;
+  images: string[];
+  categories: string[];
+  duration: string;
 }
