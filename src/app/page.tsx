@@ -28,8 +28,8 @@ export default function HomePage() {
             <div className="relative order-first lg:order-last">
               <div className="relative aspect-square max-w-[320px] sm:max-w-[450px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/2.png"
-                  alt="RootsRemedy - Plantes traditionnelles africaines"
+                  src="/logo3.jpg"
+                  alt="RootsRemedy"
                   fill
                   sizes="(max-width: 640px) 320px, 450px"
                   className="object-cover"
