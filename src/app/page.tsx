@@ -22,28 +22,18 @@ export default function HomePage() {
           <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-gold-300 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-32">
-          {/* Logo en haut */}
-          <div className="flex justify-center mb-8">
-            <Image
-              src="/logo3.png"
-              alt="RootsRemedy Logo"
-              width={150}
-              height={150}
-              className="h-24 sm:h-32 w-auto"
-            />
-          </div>
-
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Image en premier sur mobile */}
             <div className="relative order-first lg:order-last">
-              <div className="aspect-square max-w-[280px] sm:max-w-none mx-auto bg-gradient-to-br from-sage-100 to-earth-100 rounded-2xl sm:rounded-3xl flex items-center justify-center overflow-hidden">
+              <div className="aspect-[4/5] sm:aspect-square max-w-[320px] sm:max-w-[450px] mx-auto bg-gradient-to-br from-sage-100 to-earth-100 rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg">
                 <Image
                   src="/images/2.png"
-                  alt="RootsRemedy"
-                  width={500}
-                  height={500}
+                  alt="RootsRemedy - Plantes traditionnelles africaines"
+                  width={600}
+                  height={600}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
             </div>

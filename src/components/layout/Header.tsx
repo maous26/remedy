@@ -52,9 +52,9 @@ export default function Header() {
               <Image
                 src="/logo3.png"
                 alt="RootsRemedy"
-                width={150}
-                height={60}
-                className="h-10 sm:h-14 w-auto"
+                width={180}
+                height={72}
+                className="h-12 sm:h-14 w-auto"
                 priority
               />
             </Link>
