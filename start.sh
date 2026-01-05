@@ -1,4 +1,7 @@
 #!/bin/sh
+# Force production mode
+export NODE_ENV=production
+
 echo "=== RootsRemedy Server Starting ==="
 echo "PORT: $PORT"
 echo "NODE_ENV: $NODE_ENV"
