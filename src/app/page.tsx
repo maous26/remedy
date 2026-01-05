@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowRight, Leaf, Heart, Shield, Sparkles } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import ProductCard from '@/components/product/ProductCard';
+import TestimonialsSection from '@/components/testimonials/TestimonialsSection';
 import { products } from '@/data/products';
 import { packs } from '@/data/packs';
 
@@ -204,6 +205,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
 
       {/* Trust Banner */}
       <section className="py-8 sm:py-12 bg-sage-600 text-white">
