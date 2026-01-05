@@ -22,16 +22,27 @@ export default function HomePage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-32">
+          {/* Logo en haut */}
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/logo3.png"
+              alt="RootsRemedy Logo"
+              width={150}
+              height={150}
+              className="h-24 sm:h-32 w-auto"
+            />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Image en premier sur mobile */}
             <div className="relative order-first lg:order-last">
-              <div className="aspect-square max-w-[280px] sm:max-w-none mx-auto bg-gradient-to-br from-sage-100 to-earth-100 rounded-2xl sm:rounded-3xl flex items-center justify-center">
+              <div className="aspect-square max-w-[280px] sm:max-w-none mx-auto bg-gradient-to-br from-sage-100 to-earth-100 rounded-2xl sm:rounded-3xl flex items-center justify-center overflow-hidden">
                 <Image
-                  src="/logo3.png"
+                  src="/images/2.png"
                   alt="RootsRemedy"
-                  width={400}
-                  height={400}
-                  className="w-2/3 h-auto"
+                  width={500}
+                  height={500}
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
