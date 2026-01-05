@@ -26,13 +26,13 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Image en premier sur mobile */}
             <div className="relative order-first lg:order-last">
-              <div className="aspect-[4/5] sm:aspect-square max-w-[320px] sm:max-w-[450px] mx-auto bg-gradient-to-br from-sage-100 to-earth-100 rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg">
+              <div className="relative aspect-square max-w-[320px] sm:max-w-[450px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg">
                 <Image
                   src="/images/2.png"
                   alt="RootsRemedy - Plantes traditionnelles africaines"
-                  width={600}
-                  height={600}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 640px) 320px, 450px"
+                  className="object-cover"
                   priority
                 />
               </div>
