@@ -105,3 +105,30 @@ export interface ShippingOption {
   price: number;
   estimatedDays: string;
 }
+
+// Admin types
+export interface SiteConfig {
+  logo: string;
+  heroImage: string;
+}
+
+export interface PromoBanner {
+  id: string;
+  enabled: boolean;
+  message: string;
+  linkText?: string;
+  linkUrl?: string;
+  backgroundColor: string;
+  textColor: string;
+  animation: 'none' | 'scroll' | 'blink' | 'pulse' | 'bounce';
+  speed: 'slow' | 'normal' | 'fast';
+}
+
+export interface ProductOverride {
+  slug: string;
+  name?: string;
+  subtitle?: string;
+  description?: string;
+  price?: number;
+  images?: string[];
+}

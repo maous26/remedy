@@ -5,11 +5,13 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X, ShoppingBag, ChevronRight } from 'lucide-react';
 import { useCartStore } from '@/lib/store';
+import { useAdminStore } from '@/lib/adminStore';
 import CartDrawer from '@/components/cart/CartDrawer';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openCart, getItemCount } = useCartStore();
+  const { siteConfig } = useAdminStore();
   const itemCount = getItemCount();
 
   // Fermer le menu quand on resize
@@ -50,7 +52,7 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 flex-shrink-0">
               <Image
-                src="/logo3.png"
+                src={siteConfig.logo}
                 alt="RootsRemedy"
                 width={180}
                 height={72}
@@ -119,7 +121,7 @@ export default function Header() {
             {/* Header du menu */}
             <div className="flex items-center justify-between p-4 border-b border-earth-100">
               <Image
-                src="/logo3.png"
+                src={siteConfig.logo}
                 alt="RootsRemedy"
                 width={120}
                 height={48}
