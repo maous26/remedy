@@ -28,11 +28,11 @@ export default function HomePage() {
             <div className="relative order-first lg:order-last">
               <div className="relative aspect-square max-w-[320px] sm:max-w-[450px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg">
                 <Image
-                  src="/logo3.jpg"
+                  src="/logo3.png"
                   alt="RootsRemedy"
                   fill
                   sizes="(max-width: 640px) 320px, 450px"
-                  className="object-cover"
+                  className="object-contain"
                   priority
                 />
               </div>
